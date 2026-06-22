@@ -1,0 +1,288 @@
+/* style-literary.css — 文学/文字工作者风格
+ * 适用：作家、编辑、记者、文案策划、翻译、出版人等
+ * 特点：优雅、简洁、书卷气，注重阅读体验
+ */
+
+:root {
+  /* 文学风格配色 */
+  --color-text: #2c1810;           /* 深棕色，温暖易读 */
+  --color-text-muted: #5c4a3d;     /* 棕灰色 */
+  --color-text-light: #8b7355;     /* 浅棕色 */
+  --color-border: #d4c4a8;         /* 米色边框 */
+  --color-accent: #a03428;         /* 砖红色点缀 */
+  --color-page-bg: #faf6ed;        /* 米黄色纸张背景 */
+  --color-bg-light: #f0e6d3;       /* 浅米色背景 */
+  
+  /* 文学字体 - 优雅的衬线字体 */
+  --font-body: "Georgia", "Times New Roman", "Songti SC", "STSong", "Source Han Serif SC", "PingFang SC", serif;
+  --font-heading: "Georgia", "Times New Roman", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", serif;
+}
+
+.template-single {
+  font-size: var(--fs-body);
+  background-color: var(--color-page-bg);
+}
+
+/* ===== 页头：姓名 + headline + 联系方式 ===== */
+.template-single .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+/* 装饰性线条 - 文学感 */
+.template-single .header::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-accent);
+}
+
+.template-single .header-main {
+  flex: 1;
+}
+
+.template-single .name {
+  font-family: var(--font-heading);
+  font-size: calc(var(--fs-name) * 1.1);
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.05em;
+  font-style: normal;
+}
+
+.template-single .headline {
+  font-size: var(--fs-h2);
+  color: var(--color-text-muted);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+/* photo：简洁的方形头像 */
+.template-single .photo {
+  width: 70px;
+  height: 70px;
+  border-radius: 2px;
+  object-fit: cover;
+  margin-left: var(--space-lg);
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+  padding: 3px;
+  background: white;
+}
+
+/* 联系方式：简洁的分行布局 */
+.template-single .contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-lg);
+  margin-top: var(--space-md);
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.template-single .contact-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.template-single .contact-item:not(:last-child)::after {
+  content: "•";
+  margin-left: var(--space-lg);
+  color: var(--color-text-light);
+  font-size: 0.6em;
+}
+
+/* 国内字段 */
+.template-single .domestic-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-md);
+  margin-top: var(--space-sm);
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+}
+
+.template-single .domestic-fields span:not(:last-child)::after {
+  content: "|";
+  margin-left: var(--space-md);
+  color: var(--color-border);
+}
+
+/* 个人简介 - 类似书籍排版 */
+.template-single .summary {
+  margin-bottom: var(--space-xl);
+  color: var(--color-text);
+  line-height: 1.8;
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-bg-light);
+  border-left: 3px solid var(--color-accent);
+  position: relative;
+  font-size: 0.95em;
+}
+
+/* 开篇引号装饰 */
+.template-single .summary::before {
+  content: """";
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 3rem;
+  color: var(--color-accent);
+  font-family: Georgia, serif;
+  line-height: 1;
+  opacity: 0.3;
+}
+
+/* ===== Section 通用 ===== */
+.template-single .section {
+  margin-bottom: var(--space-xl);
+}
+
+.template-single .section-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  color: var(--color-accent);
+  text-transform: none;
+  letter-spacing: 0.1em;
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  border-bottom: none;
+  position: relative;
+  display: inline-block;
+}
+
+/* 装饰性下划线 */
+.template-single .section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 1px;
+  background-color: var(--color-accent);
+}
+
+/* ===== 经历条目 ===== */
+.template-single .entry {
+  margin-bottom: var(--space-lg);
+  break-inside: avoid;
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+/* 装饰性圆点 */
+.template-single .entry::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+}
+
+.template-single .entry:last-child {
+  margin-bottom: 0;
+}
+
+.template-single .entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-xs);
+}
+
+.template-single .entry-title {
+  font-size: var(--fs-h2);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.template-single .entry-subtitle {
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+  font-style: italic;
+}
+
+.template-single .entry-date {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  white-space: nowrap;
+  font-style: italic;
+}
+
+.template-single .entry-location {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  margin-left: var(--space-sm);
+}
+
+/* 成果 bullet 列表 - 书籍风格 */
+.template-single .highlights {
+  margin-top: var(--space-sm);
+  padding-left: var(--space-lg);
+  list-style: none;
+}
+
+.template-single .highlights li {
+  margin-bottom: var(--space-sm);
+  line-height: 1.7;
+  color: var(--color-text);
+  position: relative;
+}
+
+.template-single .highlights li::before {
+  content: "—";
+  position: absolute;
+  left: -1.2rem;
+  color: var(--color-text-light);
+  font-weight: normal;
+}
+
+.template-single .highlights li:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== 技能：分组，每组一行 ===== */
+.template-single .skill-group {
+  margin-bottom: var(--space-md);
+  display: block;
+}
+
+.template-single .skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.template-single .skill-category {
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-right: var(--space-sm);
+  display: inline;
+  font-style: italic;
+}
+
+.template-single .skill-items {
+  color: var(--color-text-muted);
+}
+
+/* ===== GPA 等附加信息 ===== */
+.template-single .entry-meta {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  margin-top: var(--space-xs);
+  font-style: italic;
+}

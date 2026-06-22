@@ -1,0 +1,210 @@
+/* style-academic.css — 学术/研究风格
+ * 适用：研究员、教师、教授、科学工作者等
+ * 特点：简洁、清晰、学术气息，深灰色系 */
+
+:root {
+  /* 学术风格配色 */
+  --color-text: #2d3748;
+  --color-text-muted: #718096;
+  --color-text-light: #a0aec0;
+  --color-border: #e2e8f0;
+  --color-accent: #2c5282;
+  --color-page-bg: #ffffff;
+  
+  /* 学术字体 */
+  --font-body: "Georgia", "Times New Roman", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", serif;
+  --font-heading: "Georgia", "Times New Roman", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", serif;
+}
+
+.template-single {
+  font-size: var(--fs-body);
+}
+
+/* ===== 页头：姓名 + headline + 联系方式 ===== */
+.template-single .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.template-single .header-main {
+  flex: 1;
+}
+
+.template-single .name {
+  font-family: var(--font-heading);
+  font-size: calc(var(--fs-name) * 1.1);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.template-single .headline {
+  font-size: var(--fs-h2);
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+/* photo：简洁矩形头像 */
+.template-single .photo {
+  width: 60px;
+  height: 75px;
+  border-radius: 2px;
+  object-fit: cover;
+  margin-left: var(--space-md);
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+}
+
+/* 联系方式：简洁布局 */
+.template-single .contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-lg);
+  margin-top: var(--space-sm);
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+}
+
+.template-single .contact-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.template-single .contact-item:not(:last-child)::after {
+  content: "|";
+  margin-left: var(--space-lg);
+  color: var(--color-border);
+}
+
+/* 国内字段 */
+.template-single .domestic-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-md);
+  margin-top: var(--space-xs);
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+}
+
+.template-single .domestic-fields span:not(:last-child)::after {
+  content: "|";
+  margin-left: var(--space-md);
+  color: var(--color-border);
+}
+
+/* 个人简介 */
+.template-single .summary {
+  margin-bottom: var(--space-xl);
+  color: var(--color-text);
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* ===== Section 通用 ===== */
+.template-single .section {
+  margin-bottom: var(--space-xl);
+}
+
+.template-single .section-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: none;
+  letter-spacing: 0;
+  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ===== 经历条目 ===== */
+.template-single .entry {
+  margin-bottom: var(--space-lg);
+  break-inside: avoid;
+}
+
+.template-single .entry:last-child {
+  margin-bottom: 0;
+}
+
+.template-single .entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-xs);
+}
+
+.template-single .entry-title {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.template-single .entry-subtitle {
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.template-single .entry-date {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  white-space: nowrap;
+  font-style: italic;
+}
+
+.template-single .entry-location {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  margin-left: var(--space-sm);
+}
+
+/* 成果 bullet 列表 */
+.template-single .highlights {
+  margin-top: var(--space-sm);
+  padding-left: var(--space-lg);
+  list-style: disc;
+}
+
+.template-single .highlights li {
+  margin-bottom: var(--space-xs);
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.template-single .highlights li:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== 技能：分组，每组一行 ===== */
+.template-single .skill-group {
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.template-single .skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.template-single .skill-category {
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-right: var(--space-sm);
+  display: inline;
+}
+
+.template-single .skill-items {
+  color: var(--color-text-muted);
+}
+
+/* ===== GPA 等附加信息 ===== */
+.template-single .entry-meta {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  margin-top: var(--space-xs);
+  font-style: italic;
+}

@@ -1,0 +1,302 @@
+/* style-creative.css — 设计/创意风格
+ * 适用：UI/UX 设计师、平面设计师、创意总监、艺术指导等
+ * 特点：大胆、有创意、视觉冲击力强，紫色系 */
+
+:root {
+  /* 创意风格配色 */
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-text-light: #9ca3af;
+  --color-border: #e5e7eb;
+  --color-accent: #8b5cf6;
+  --color-accent-secondary: #ec4899;
+  --color-page-bg: #ffffff;
+  
+  /* 创意字体 */
+  --font-body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif;
+  --font-heading: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif;
+}
+
+.template-single {
+  font-size: var(--fs-body);
+}
+
+/* ===== 页头：姓名 + headline + 联系方式 ===== */
+.template-single .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  position: relative;
+}
+
+.template-single .header::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-secondary) 100%);
+  border-radius: 2px;
+}
+
+.template-single .header-main {
+  flex: 1;
+}
+
+.template-single .name {
+  font-family: var(--font-heading);
+  font-size: calc(var(--fs-name) * 1.3);
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.03em;
+}
+
+.template-single .headline {
+  font-size: var(--fs-h1);
+  color: var(--color-text-muted);
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* photo：大尺寸圆形头像 */
+.template-single .photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: var(--space-lg);
+  flex-shrink: 0;
+  border: 4px solid;
+  border-image: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-secondary) 100%) 1;
+  box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.3);
+}
+
+/* 联系方式：创意布局 */
+.template-single .contact-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+}
+
+.template-single .contact-item {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.template-single .contact-item:not(:last-child)::after {
+  content: "";
+  margin-left: 0;
+}
+
+/* 国内字段 */
+.template-single .domestic-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+  margin-top: var(--space-md);
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+}
+
+.template-single .domestic-fields span {
+  padding: 4px 12px;
+  background: rgba(139, 92, 246, 0.08);
+  border-radius: 12px;
+}
+
+.template-single .domestic-fields span:not(:last-child)::after {
+  content: "";
+  margin-left: 0;
+}
+
+/* 个人简介 */
+.template-single .summary {
+  margin-bottom: var(--space-xl);
+  color: var(--color-text);
+  line-height: 1.8;
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
+  border-radius: 12px;
+  position: relative;
+}
+
+.template-single .summary::before {
+  content: """";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 4rem;
+  color: rgba(139, 92, 246, 0.1);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+/* ===== Section 通用 ===== */
+.template-single .section {
+  margin-bottom: var(--space-xl);
+}
+
+.template-single .section-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 800;
+  color: var(--color-text);
+  text-transform: none;
+  letter-spacing: 0;
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.template-single .section-title::before {
+  content: "";
+  width: 8px;
+  height: 24px;
+  background: linear-gradient(180deg, var(--color-accent) 0%, var(--color-accent-secondary) 100%);
+  border-radius: 4px;
+}
+
+/* ===== 经历条目 ===== */
+.template-single .entry {
+  margin-bottom: var(--space-lg);
+  break-inside: avoid;
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.03) 0%, rgba(236, 72, 153, 0.03) 100%);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.template-single .entry::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--color-accent) 0%, var(--color-accent-secondary) 100%);
+}
+
+.template-single .entry:last-child {
+  margin-bottom: 0;
+}
+
+.template-single .entry-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.template-single .entry-title {
+  font-size: calc(var(--fs-h2) * 1.1);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.template-single .entry-subtitle {
+  font-size: var(--fs-body);
+  color: var(--color-accent);
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.template-single .entry-date {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.template-single .entry-location {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  margin-left: var(--space-sm);
+}
+
+/* 成果 bullet 列表 */
+.template-single .highlights {
+  margin-top: var(--space-md);
+  padding-left: var(--space-lg);
+  list-style: none;
+}
+
+.template-single .highlights li {
+  margin-bottom: var(--space-sm);
+  line-height: 1.7;
+  color: var(--color-text);
+  position: relative;
+}
+
+.template-single .highlights li::before {
+  content: "◆";
+  position: absolute;
+  left: -1rem;
+  color: var(--color-accent);
+  font-size: 0.7em;
+}
+
+.template-single .highlights li:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== 技能：分组，每组一行 ===== */
+.template-single .skill-group {
+  margin-bottom: var(--space-md);
+  display: block;
+}
+
+.template-single .skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.template-single .skill-category {
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-right: var(--space-sm);
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-size: var(--fs-h2);
+}
+
+.template-single .skill-items {
+  color: var(--color-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.template-single .skill-items::before {
+  display: none;
+}
+
+.template-single .skill-items span {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(236, 72, 153, 0.15) 100%);
+  padding: 4px 12px;
+  border-radius: 16px;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* ===== GPA 等附加信息 ===== */
+.template-single .entry-meta {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  margin-top: var(--space-xs);
+}

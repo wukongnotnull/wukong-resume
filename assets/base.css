@@ -1,0 +1,122 @@
+/* base.css — wukong-resume 共享基础样式
+ * 两套模板（single / sidebar）都引入这个文件。
+ * 改字体、改颜色变量、改页边距只动这里。 */
+
+/* ===== CSS Reset（精简版，够简历用）===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  line-height: 1.5;
+  background: var(--color-page-bg);
+}
+
+/* ===== CSS 变量（设计 token）=====
+ * 中文模板用思源黑体回退到系统黑体；英文用系统无衬线。
+ * 想改主题色只动这里，两套模板自动跟随。 */
+:root {
+  /* 字体 */
+  --font-body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+               "Source Han Sans CN", -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-heading: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+                  "Source Han Sans CN", -apple-system, sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", Consolas, monospace;
+
+  /* 颜色（单栏用）*/
+  --color-text: #1a1a1a;
+  --color-text-muted: #666;
+  --color-text-light: #999;
+  --color-border: #e0e0e0;
+  --color-accent: #2c3e50;
+  --color-page-bg: #ffffff;
+
+  /* 侧边栏配色（双栏用）*/
+  --color-sidebar-bg: #2c3e50;
+  --color-sidebar-text: #ecf0f1;
+  --color-sidebar-muted: #bdc3c7;
+
+  /* 间距 */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+
+  /* 字号 */
+  --fs-name: 2rem;
+  --fs-h1: 1.25rem;
+  --fs-h2: 1rem;
+  --fs-body: 0.875rem;
+  --fs-small: 0.75rem;
+}
+
+/* 英文模板覆盖字体（html[lang="en"]）*/
+html[lang="en"] {
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+               Arial, sans-serif;
+  --font-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ===== @page 打印规则 =====
+ * A4 默认；Letter 通过 SKILL 指导 AI 在生成 HTML 时
+ * 用内联 <style> 覆盖 @page 的 size。
+ * 这是「浏览器打印成 PDF 分页正确」的关键。 */
+@page {
+  size: A4;
+  margin: 1.5cm 2cm;
+}
+
+/* ===== 打印颜色强制（双栏侧边栏的生命线）=====
+ * 不加这两行，Chrome 打印时深色背景会变白。
+ * 用户仍需在打印对话框勾选「背景图形」才能 100% 生效，
+ * 详见 references/print-stability.md。 */
+* {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ===== 通用元素样式 ===== */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ===== 打印时分页控制 =====
+ * 避免经历条目跨页被切断。 */
+.avoid-break {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* 屏幕预览时给个最大宽度，居中，模拟 A4 比例 */
+@media screen {
+  body {
+    max-width: 210mm; /* A4 宽 */
+    margin: 1rem auto;
+    padding: 2rem;
+    background: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}

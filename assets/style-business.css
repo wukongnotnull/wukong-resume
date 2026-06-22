@@ -1,0 +1,221 @@
+/* style-business.css — 商务/管理风格
+ * 适用：项目经理、商务总监、企业高管、市场营销等
+ * 特点：专业、稳重、传统，深蓝色/黑色系 */
+
+:root {
+  /* 商务风格配色 */
+  --color-text: #111827;
+  --color-text-muted: #4b5563;
+  --color-text-light: #9ca3af;
+  --color-border: #d1d5db;
+  --color-accent: #1e3a5f;
+  --color-gold: #d4af37;
+  --color-page-bg: #ffffff;
+  
+  /* 商务字体 */
+  --font-body: "Times New Roman", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Georgia, serif;
+  --font-heading: "Times New Roman", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Georgia, serif;
+}
+
+.template-single {
+  font-size: var(--fs-body);
+}
+
+/* ===== 页头：姓名 + headline + 联系方式 ===== */
+.template-single .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.template-single .header-main {
+  flex: 1;
+  text-align: center;
+}
+
+.template-single .name {
+  font-family: var(--font-heading);
+  font-size: calc(var(--fs-name) * 1.2);
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.template-single .headline {
+  font-size: var(--fs-h2);
+  color: var(--color-gold);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* photo：传统矩形头像 */
+.template-single .photo {
+  width: 65px;
+  height: 80px;
+  border-radius: 2px;
+  object-fit: cover;
+  margin-left: var(--space-md);
+  flex-shrink: 0;
+  border: 2px solid var(--color-accent);
+}
+
+/* 联系方式：居中布局 */
+.template-single .contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm) var(--space-xl);
+  margin-top: var(--space-md);
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+}
+
+.template-single .contact-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.template-single .contact-item:not(:last-child)::after {
+  content: "|";
+  margin-left: var(--space-xl);
+  color: var(--color-border);
+}
+
+/* 国内字段 */
+.template-single .domestic-fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs) var(--space-xl);
+  margin-top: var(--space-sm);
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+}
+
+.template-single .domestic-fields span:not(:last-child)::after {
+  content: "|";
+  margin-left: var(--space-xl);
+  color: var(--color-border);
+}
+
+/* 个人简介 */
+.template-single .summary {
+  margin-bottom: var(--space-xl);
+  color: var(--color-text);
+  line-height: 1.8;
+  text-align: justify;
+  font-style: italic;
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ===== Section 通用 ===== */
+.template-single .section {
+  margin-bottom: var(--space-xl);
+}
+
+.template-single .section-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-gold);
+}
+
+/* ===== 经历条目 ===== */
+.template-single .entry {
+  margin-bottom: var(--space-lg);
+  break-inside: avoid;
+}
+
+.template-single .entry:last-child {
+  margin-bottom: 0;
+}
+
+.template-single .entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-sm);
+}
+
+.template-single .entry-title {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.template-single .entry-subtitle {
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.template-single .entry-date {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.template-single .entry-location {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  margin-left: var(--space-sm);
+}
+
+/* 成果 bullet 列表 */
+.template-single .highlights {
+  margin-top: var(--space-sm);
+  padding-left: var(--space-lg);
+  list-style: square;
+}
+
+.template-single .highlights li {
+  margin-bottom: var(--space-sm);
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.template-single .highlights li:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== 技能：分组，每组一行 ===== */
+.template-single .skill-group {
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.template-single .skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.template-single .skill-category {
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-right: var(--space-sm);
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.template-single .skill-items {
+  color: var(--color-text);
+}
+
+/* ===== GPA 等附加信息 ===== */
+.template-single .entry-meta {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  margin-top: var(--space-xs);
+}

@@ -1,0 +1,191 @@
+/* single-column.css — 单栏极简模板
+ * 在 <body class="template-single"> 上生效。
+ * 配合 base.css 使用。 */
+
+.template-single {
+  font-size: var(--fs-body);
+}
+
+/* ===== 页头：姓名 + headline + 联系方式 ===== */
+.template-single .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.template-single .header-main {
+  flex: 1;
+}
+
+.template-single .name {
+  font-family: var(--font-heading);
+  font-size: var(--fs-name);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+  letter-spacing: 0.02em;
+}
+
+.template-single .headline {
+  font-size: var(--fs-h2);
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+/* photo：右上角小圆头像（可选，basics.photo 有值才渲染）*/
+.template-single .photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: var(--space-md);
+  flex-shrink: 0;
+}
+
+/* 联系方式：一行流式，用 · 分隔 */
+.template-single .contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+  margin-top: var(--space-sm);
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+}
+
+.template-single .contact-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.template-single .contact-item:not(:last-child)::after {
+  content: "·";
+  margin-left: var(--space-md);
+  color: var(--color-text-light);
+}
+
+/* 国内字段（年龄/性别/政治面貌/籍贯/婚姻）：小字灰色
+ * 英文模板由 AI 在生成 HTML 时不输出这些节点 */
+.template-single .domestic-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-md);
+  margin-top: var(--space-xs);
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+}
+
+.template-single .domestic-fields span:not(:last-child)::after {
+  content: "·";
+  margin-left: var(--space-md);
+}
+
+/* 个人简介 */
+.template-single .summary {
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ===== Section 通用（工作经历/教育/技能/项目...）===== */
+.template-single .section {
+  margin-bottom: var(--space-lg);
+}
+
+.template-single .section-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ===== 经历条目（experience / education / projects 共用）===== */
+.template-single .entry {
+  margin-bottom: var(--space-md);
+  break-inside: avoid; /* 防跨页切断 */
+}
+
+.template-single .entry:last-child {
+  margin-bottom: 0;
+}
+
+.template-single .entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-xs);
+}
+
+.template-single .entry-title {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.template-single .entry-subtitle {
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.template-single .entry-date {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  white-space: nowrap;
+}
+
+.template-single .entry-location {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  margin-left: var(--space-sm);
+}
+
+/* 成果 bullet 列表 */
+.template-single .highlights {
+  margin-top: var(--space-xs);
+  padding-left: var(--space-md);
+  list-style: disc;
+}
+
+.template-single .highlights li {
+  margin-bottom: var(--space-xs);
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.template-single .highlights li:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== 技能：分组，每组一行 ===== */
+.template-single .skill-group {
+  margin-bottom: var(--space-sm);
+}
+
+.template-single .skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.template-single .skill-category {
+  font-weight: 600;
+  color: var(--color-text);
+  margin-right: var(--space-sm);
+}
+
+.template-single .skill-items {
+  color: var(--color-text-muted);
+}
+
+/* ===== GPA 等附加信息 ===== */
+.template-single .entry-meta {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  margin-top: var(--space-xs);
+}

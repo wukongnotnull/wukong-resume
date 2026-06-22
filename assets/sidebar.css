@@ -1,0 +1,200 @@
+/* sidebar.css — 双栏侧边栏模板
+ * 在 <body class="template-sidebar"> 上生效。
+ * 配合 base.css 使用。
+ * 关键：左栏深色背景依赖 base.css 的 print-color-adjust: exact。 */
+
+.template-sidebar {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  font-size: var(--fs-body);
+  min-height: 100vh;
+}
+
+/* ===== 左栏：深色背景 ===== */
+.template-sidebar .sidebar {
+  background: var(--color-sidebar-bg);
+  color: var(--color-sidebar-text);
+  padding: var(--space-xl) var(--space-lg);
+  break-inside: avoid; /* 整个侧栏尽量不分页 */
+}
+
+/* photo：大圆头像居顶 */
+.template-sidebar .photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto var(--space-lg);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 侧栏内的 section 标题 */
+.template-sidebar .sidebar-section {
+  margin-bottom: var(--space-lg);
+}
+
+.template-sidebar .sidebar-section:last-child {
+  margin-bottom: 0;
+}
+
+.template-sidebar .sidebar-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-sidebar-text);
+  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-sm);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 国内字段（年龄/性别/政治面貌/籍贯/婚姻）*/
+.template-sidebar .domestic-fields {
+  font-size: var(--fs-small);
+  color: var(--color-sidebar-muted);
+  line-height: 1.8;
+}
+
+/* 联系方式 */
+.template-sidebar .contact-list {
+  font-size: var(--fs-small);
+  color: var(--color-sidebar-muted);
+  line-height: 1.8;
+  word-break: break-all;
+}
+
+.template-sidebar .contact-list li {
+  margin-bottom: var(--space-xs);
+}
+
+.template-sidebar .contact-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* 侧栏技能 */
+.template-sidebar .sidebar-skills {
+  font-size: var(--fs-small);
+  color: var(--color-sidebar-muted);
+  line-height: 1.8;
+}
+
+.template-sidebar .sidebar-skill-category {
+  color: var(--color-sidebar-text);
+  font-weight: 600;
+  display: block;
+  margin-bottom: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.template-sidebar .sidebar-skill-category:first-child {
+  margin-top: 0;
+}
+
+/* ===== 右栏：主内容 ===== */
+.template-sidebar .main {
+  padding: var(--space-xl) var(--space-xl);
+  background: var(--color-page-bg);
+}
+
+/* 页头：姓名 + headline */
+.template-sidebar .header {
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-md);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.template-sidebar .name {
+  font-family: var(--font-heading);
+  font-size: var(--fs-name);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.template-sidebar .headline {
+  font-size: var(--fs-h2);
+  color: var(--color-text-muted);
+}
+
+.template-sidebar .summary {
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Section 通用 */
+.template-sidebar .section {
+  margin-bottom: var(--space-lg);
+}
+
+.template-sidebar .section-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* 经历条目 */
+.template-sidebar .entry {
+  margin-bottom: var(--space-md);
+  break-inside: avoid;
+}
+
+.template-sidebar .entry:last-child {
+  margin-bottom: 0;
+}
+
+.template-sidebar .entry-header {
+  margin-bottom: var(--space-xs);
+}
+
+.template-sidebar .entry-title {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.template-sidebar .entry-subtitle {
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+}
+
+.template-sidebar .entry-meta {
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  margin-top: var(--space-xs);
+}
+
+.template-sidebar .highlights {
+  margin-top: var(--space-xs);
+  padding-left: var(--space-md);
+  list-style: disc;
+}
+
+.template-sidebar .highlights li {
+  margin-bottom: var(--space-xs);
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.template-sidebar .highlights li:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== 打印时：左栏跨页保持背景 =====
+ * 关键技巧：让侧栏在每页都延伸到底。
+ * 这是个已知难题，最稳的做法是让内容尽量控制在一页内。
+ * 多页时接受侧栏在第二页可能不铺满，但背景色不会丢。 */
+@media print {
+  .template-sidebar {
+    display: grid;
+    grid-template-columns: 35% 65%;
+  }
+}
